@@ -1,29 +1,32 @@
 <div class="container">
-  <h2 class="">Weather list</h2>
+  <h2 class="text-center">Welcome To Weather list Application</h2>
 
-<div class="row">
-  <div class="col-sm-6 mb-3">
-    <input type="text" class="form-control" placeholder="search by city"
-    [(ngModel)]="searchCity" />
+<div class="row pb-5">
+  <div class="w-50 mx-auto">
+    <input type="text" class="form-control my-3" placeholder="search by city and start typing to filter results instantly ..."
+    [(ngModel)]="searchCity"
+    (keyup)="filterWeatherList()"/>
   </div>
 
-  <div class="col-sm-6 mb-3">
- <button class="btn btn-primary d-block" (click)="filterWeatherList()">Filter</button>
-  </div>
+  <!-- <div class="col-sm-4 mb-3">
+ <button class="btn btn-primary" (click)="filterWeatherList()">Filter</button>
+  </div> -->
+  <button class="btn btn-outline-primary mx-2 my-3" (click)="sortWeatherList('city')">
+    Sort by city
+  </button>
+  <button class="btn btn-outline-primary mx-2 mt-3" (click)="sortWeatherList('temperature')">
+    Sort by Temperature
+  </button>
 </div>
-<button class="btn btn-primary mx-2 my-3" (click)="sortWeatherList('city')">
-  Sort by city
-</button>
-<button class="btn btn-primary mx-2 my-3" (click)="sortWeatherList('temperature')">
-  Sort by Temperature
-</button>
 
-  <ul class="list-group">
+
+
+  <ul class="list-group py-5 bg-body-secondary">
     @for(cityWeather of filteredWeatherList;track cityWeather.id)
     {
-<button class="list-group-item btn d-block btn-success"
+<button class="  btn w-50 mx-auto shadow-sm btn-outline-dark text-capitalize my-2"
 (click)="navigateToWeather(cityWeather.temperature)" >
-  {{cityWeather.city}} :  {{cityWeather.temperature}}
+  {{cityWeather.city}} :  <span class="text-danger fw-bold">{{cityWeather.temperature}}</span>
 </button>
     }
   </ul>

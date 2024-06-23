@@ -13,11 +13,11 @@ export class BackGroundColorDirective implements OnInit {
   }
   private setBackGround() {
     if (this.temperature < 10) {
-      this._ElementRef.nativeElement.style.backgroundColor = 'blue';
+      this._ElementRef.nativeElement.style.backgroundColor = '#33395465';
     } else if (this.temperature >= 10 && this.temperature <= 25) {
-      this._ElementRef.nativeElement.style.backgroundColor = 'green';
+      this._ElementRef.nativeElement.style.backgroundColor = '#99955486';
     } else {
-      this._ElementRef.nativeElement.style.backgroundColor = 'red';
+      this._ElementRef.nativeElement.style.backgroundColor = '#888';
     }
   }
 }
