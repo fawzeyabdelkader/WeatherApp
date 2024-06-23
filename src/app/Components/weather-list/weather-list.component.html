@@ -1,1 +1,30 @@
-<p>weather-list works!</p>
+<div class="container">
+  <h2 class="">Weather list</h2>
+
+<div class="row">
+  <div class="col-sm-6 mb-3">
+    <input type="text" class="form-control" placeholder="search by city"
+    [(ngModel)]="searchCity" />
+  </div>
+
+  <div class="col-sm-6 mb-3">
+ <button class="btn btn-primary d-block" (click)="filterWeatherList()">Filter</button>
+  </div>
+</div>
+<button class="btn btn-primary mx-2 my-3" (click)="sortWeatherList('city')">
+  Sort by city
+</button>
+<button class="btn btn-primary mx-2 my-3" (click)="sortWeatherList('temperature')">
+  Sort by Temperature
+</button>
+
+  <ul class="list-group">
+    @for(cityWeather of filteredWeatherList;track cityWeather.id)
+    {
+<button class="list-group-item btn d-block btn-success"
+(click)="navigateToWeather(cityWeather.temperature)" >
+  {{cityWeather.city}} :  {{cityWeather.temperature}}
+</button>
+    }
+  </ul>
+</div>
